@@ -109,6 +109,13 @@ function resolveUserAgent(uaString) {
     }
   }
 
+  if (parsedUA.family === 'Opera Mobile') {
+    return {
+      family: 'OperaMobile',
+      version: [parsedUA.major, parsedUA.minor, parsedUA.patch].join('.'),
+    }
+  }
+
   return {
     family: parsedUA.family,
     version: [parsedUA.major, parsedUA.minor, parsedUA.patch].join('.'),
